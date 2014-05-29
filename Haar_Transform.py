@@ -7,8 +7,8 @@
 #
 # OUTPUT: 2D list containing Scalig Cef.s and Wavelet Coef.s of INPUT in the
 # 	    following form:
-#		Scaling Coef: a1, a2, a3, ...
-#		Wavelet Coef: d1, d2, d3, ...
+#		Scaling Coef: a_n, a_n-1, a_n-2, ..., a3, a2, a1
+#		Wavelet Coef: d_n, d_n-1, d_n-2, ..., d3, d2, d1
 #		n: Number of levels upto which Haar transform is calculated
 #		   starting from 0 level (at 0-level, we have the actual series)
 #		Each a's and d's are individual lists which are contained in
