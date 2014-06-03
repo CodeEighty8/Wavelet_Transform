@@ -32,7 +32,7 @@ def haar_transform(series, levels=False):
 	n = 2
 
 	if(levels == False):
-		while(len(s_coef[0] != 1)):
+		while(len(s_coef[0]) != 1):
 			w_coef.insert(0, calc_wavelet_coef(s_coef[0]))
 			s_coef.insert(0, calc_scaling_coef(s_coef[0]))
 			n = n+1
