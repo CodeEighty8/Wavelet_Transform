@@ -9,11 +9,14 @@
 # 	    following form:
 #		Scaling Coef: a_n, a_n-1, a_n-2, ..., a3, a2, a1
 #		Wavelet Coef: d_n, d_n-1, d_n-2, ..., d3, d2, d1
-#		n: Number of levels upto which Haar transform is calculated
-#		   starting from 0 level (at 0-level, we have the actual series)
-#		Each a's and d's are individual lists which are contained in
+#		n= Number of levels upto which Haar transform is calculated
+#		   starting from 0 level (at 0-level, we have the actual
+#		   series, Haar Wavelet and Scaling coefficients are obtained
+#		   from level 1 onwards)
+#		   Each a's and d's are individual lists which are contained in
 #		Scaling Coef and Wavelet Coef respectively, which are lists in
 #		themselvels. (List of lists)
+
 
 import numpy as np
 
@@ -38,9 +41,9 @@ def haar_transform(series, levels=False):
 			n = n+1
 
 	else:
-		while(n < levels and len(s_coef[0]) != 1):
+		while(n <= levels and len(s_coef[0]) != 1):
 			w_coef.insert(0, calc_wavelet_coef(s_coef[0]))
 			s_coef.insert(0, calc_scaling_coef(s_coef[0]))
 			n = n+1
 
-	return s_coef, w_coef, n-1
+	return s_coef, w_coef, n
