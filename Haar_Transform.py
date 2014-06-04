@@ -46,4 +46,4 @@ def haar_transform(series, levels=False):
 			s_coef.insert(0, calc_scaling_coef(s_coef[0]))
 			n = n+1
 
-	return s_coef, w_coef, n
+	return s_coef, w_coef, n-1
