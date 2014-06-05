@@ -62,32 +62,37 @@ def MRA(s, LEVELS):
 
 if __name__ == "__main__":
     # Use your time series here
-    s = np.load('')['mean'][0:4096]
+    s = np.load('/home/venu/programming/CAOS/Data/3b42_v7_daily_quarter_degree/trmm3b42v7_daily/Python_data_saves/daily.spatial.mean.Central.India.npy')['mean'][0:4096]
+
+    s = (s - s.min())/(s.max() - s.min())
     
     LEVELS = 3
-
+    
     if LEVELS == 0:
         LEVELS = np.int(np.log2(s.size))
 
     k = MRA(s, LEVELS)
-
-    fig, ax = pl.subplots(LEVELS+2, sharex=True)
+    
+    fig, ax = pl.subplots(LEVELS+1, sharex=True)
+    
     for l in range(1, LEVELS+1):
-        ax[l+1].plot(k[LEVELS-l])
-        ax[l+1].set_ylabel('D'+str(LEVELS+1-l))
-        ax[l+1].grid()
-        ax[l+1].set_xlim(0, s.size-1)
+        ax[l].plot(k[LEVELS-l])
+        ax[l].set_ylabel('D'+str(LEVELS+1-l))
+        ax[l].grid()
+        ax[l].set_xlim(0, s.size-1)
+        ax[l].set_ylim(-1, 1)
 
-        ax[1].plot(k[LEVELS], 'b')
-        ax[1].set_ylabel('A'+str(LEVELS))
-
-        ax[1].set_xlim(0, s.size-1)
-        ax[1].grid()
-
-        ax[0].plot(s, 'b')
-        ax[0].set_ylabel('s ($mm\ day^{-1}$)')
-        ax[0].set_xlim(0, s.size-1)
+        ax[0].plot(k[LEVELS], 'b')
+        ax[0].set_ylabel('A'+str(LEVELS))
         ax[0].grid()
 
-    pl.tight_layout()
+        #ax[1].set_xlim(0, s.size-1)
+        #ax[1].grid()
+
+        #ax[0].plot(s, 'b')
+        #ax[0].set_ylabel('s ($mm\ day^{-1}$)')
+        #ax[0].set_xlim(0, s.size-1)
+        #ax[0].grid()
+
+    #pl.tight_layout()
     pl.show()
