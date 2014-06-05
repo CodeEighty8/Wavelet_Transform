@@ -61,7 +61,8 @@ def MRA(s, LEVELS):
 
 
 if __name__ == "__main__":
-    s = np.load('/home/venu/programming/CAOS/Data/3b42_v7_daily_quarter_degree/trmm3b42v7_daily/Python_data_saves/daily.spatial.mean.Central.India.npy')['mean'][0:4096]
+    # Use your time series here
+    s = np.load('')['mean'][0:4096]
     
     LEVELS = 3
 
