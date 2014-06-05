@@ -62,11 +62,11 @@ def MRA(s, LEVELS):
 
 if __name__ == "__main__":
     # Use your time series here
-    s = np.load('/home/venu/programming/CAOS/Data/3b42_v7_daily_quarter_degree/trmm3b42v7_daily/Python_data_saves/daily.spatial.mean.Central.India.npy')['mean'][0:4096]
+    s = np.load('')
 
     s = (s - s.min())/(s.max() - s.min())
     
-    LEVELS = 3
+    LEVELS = 4
     
     if LEVELS == 0:
         LEVELS = np.int(np.log2(s.size))
