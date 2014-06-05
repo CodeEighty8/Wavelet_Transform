@@ -47,7 +47,7 @@ def MRA(s, LEVELS):
     for l in level:
         temp = 0
         while temp < scale[LEVELS-l]:
-            if temp < scale[l-1]/2:
+            if temp < scale[LEVELS-l]/2:
                 ts_wc[LEVELS - l][temp::scale[LEVELS-l]] = w_coef[l-1][:]/np.power(np.sqrt(2), l)
                 #print temp, scale[LEVELS-l], ts_wc[LEVELS - l][temp::scale[LEVELS-l]].shape, w_coef[l-1].shape
                 temp += 1
